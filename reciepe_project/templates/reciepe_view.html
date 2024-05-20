@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+{% comment %} <div class="container card mt-3 mb-3 bg-body shadow-lg p-3 mb-5  rounded">
+    <img src="/media/{{reciepes.reciepe_img}}" class="object-fit-cover border rounded mt-2" style='height:480px; ' alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{reciepes.reciepe_name}}</h5>
+      <p class="card-text">{{reciepes.reciepe_desc}}</p>
+        
+    </div>
+  </div> {% endcomment %}
+
+
+
+  <div class="container card text-center mt-2 shadow-lg">
+    <div class="row">
+      <div class="col-12 card " >
+        <img src="/media/{{reciepes.reciepe_img}}" class="object-fit-cover  rounded mt-2 mb-2" style='height:600px;width: 100%; ' alt="...">
+       
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-12  card-body">
+        <h1 class="card-title text-start">{{reciepes.reciepe_name}}</h5>
+        <p class="card-text text-start" style="font-size:1.3rem;">{{reciepes.reciepe_desc}}</p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock body %}

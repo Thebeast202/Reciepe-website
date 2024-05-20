@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+
+
+<div>
+  <form class=" d-flex container mt-5  col-6 ">
+      <input class="form-control me-2 p-3" type="search" placeholder="Search Reciepe" name="search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit" >Search</button>
+  </form>
+</div>
+
+
+<div class="container mt-5 d-flex flex-wrap justify-content-between align-items-center border border-primary bg-dark ">
+    {% for reciepe in reciepes %}
+    <div class=" mt-3"  style="width:32%;">
+        <div class="card mb-3">
+            <img src="/media/{{reciepe.reciepe_img}}"  style="height:300px;width:100%" class="card-img-top" alt="...">
+            <div class="card-body  d-flex align-items-start  flex-column"  style="height:200px;width:100%" >
+              <h5 class="card-title mb-auto">{{reciepe.reciepe_name}}</h5>
+              <p class="card-text mb-auto">{{reciepe.reciepe_desc | truncatechars:100}}</p>
+              {% comment %} <a href="reciepe-view/{{reciepe.id}}" class="btn btn-primary p-2">View Reciepe</a> {% endcomment %}
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#m{{reciepe.id}}">
+                View
+              </button>
+              <div class="modal fade" id = "m{{reciepe.id}}">
+                <div class="modal-dialog container border-primary modal-dialog-centered">
+                  <div class="modal-content bg-dark text-light border border-secondary">
+                    <div class="modal-header">
+                      <h5 class="modal-title">{{reciepe.reciepe_name}}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="/media/{{reciepe.reciepe_img}}"  style="height:100%;width:100%" class="card-img-top" alt="...">
+                      
+                    </div>
+                    <div class="m-3"><p class="card-text mb-auto">{{reciepe.reciepe_desc}}</p></div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+    {% endfor %}
+      </div>
+
+
+
+  
+
+
+
+{% comment %} 
+
+<div class="container-fluid text-center border mt-5 p-3 bg-dark ">
+  <div class="row row-cols-4 h-25 w-25%">
+    {% for reciepe in reciepes %}
+    <div class="col">
+      <div class="card mb-3" style="width: 25rem;height:28rem">
+        <img src="/media/{{reciepe.reciepe_img}}" class="card-img-top" style='height:18rem;' alt="...">
+        <div class="card-body  d-flex justify-content-evenly align-items-start col-12 flex-column">
+          <h5 class="card-title">{{reciepe.reciepe_name}}</h5>
+          <p class="card-text">{{reciepe.reciepe_desc | truncatechars:100}}</p>
+          <a href="reciepe-view/{{reciepe.id}}" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div> {% endcomment %}
+
+
+
+
+
+
+
+{% endblock body %}

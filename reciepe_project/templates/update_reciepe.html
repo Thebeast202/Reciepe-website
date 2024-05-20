@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<div class="container mt-5">
+    <form class="container col-6 shadow-lg card p-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Reciepe Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1"  name = "reciepe_name"  value="{{reciepe.reciepe_name}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Reciepe Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="reciepe_desc" rows="3">{{reciepe.reciepe_desc}}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Reciepe Images</label>
+            <input type="file" class="form-control" name="reciepe_img" id="exampleFormControlInput1">
+        </div>
+        <button type="submit" class="btn btn-success">Update Reciepe</button>
+    </form>
+</div>
+
+{% endblock body %}
+
+
+
